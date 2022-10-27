@@ -1,4 +1,0 @@
-create the files and link them all in the html files X
-set up your javascript order X
-add some ambient audio
-
