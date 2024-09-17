@@ -77,7 +77,9 @@ button{
     background-color: rgb(113, 122, 122);
 }
 
-
+.watch-buttons button:nth-child(3){
+    background-color: rgb(243, 156, 18);
+}
 ::-webkit-scrollbar{
     background-color: black;
     width: 3px;    

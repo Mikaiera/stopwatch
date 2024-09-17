@@ -2,9 +2,19 @@
 let [milliseconds,seconds,minutes,hours] = [0,0,0,0];
 let timerRef = document.querySelector('.watch-container');;
 let int = null;
+const lapContainer = document.createElement('div');
+document.body.appendChild(lapContainer);
 
 //event listeners
-
+document.addEventListener('keydown', (e) => {
+    if (e.key === 's' || e.key === 'S') {
+        document.getElementById('startTimer').click();
+    } else if (e.key === 'p' || e.key === 'P') {
+        document.getElementById('pauseTimer').click();
+    } else if (e.key === 'r' || e.key === 'R') {
+        document.getElementById('resetTimer').click();
+    }
+});
 //functions
 document.getElementById('startTimer').addEventListener('click', ()=>{
     if(int !== null){
@@ -22,6 +32,13 @@ document.getElementById('resetTimer').addEventListener('click', ()=>{
     [milliseconds,seconds,minutes,hours] = [0,0,0,0];
     timerRef.innerHTML = '00:00:00:000';
 });
+
+document.getElementById('lapTimer').addEventListener('click'), () => {
+    const lapTime = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}:${milliseconds < 10 ? '00' + milliseconds : milliseconds < 100 ? '0' + milliseconds : milliseconds}`;
+    const lapDiv = document.createElement('div');
+    lapDiv.innerText = lapTime;
+    lapContainer.appendChild(lapDiv);
+}
 
 function displayTimer(){
     milliseconds+=10;
