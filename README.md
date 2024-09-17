@@ -1,4 +1,4 @@
-# Timer Application
+# Stopwatch Application
 
 ## Overview
 
