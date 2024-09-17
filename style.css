@@ -1,125 +1,120 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Base Colors */
+:root {
+    --primary-color: #c535b9; 
+    --secondary-color: #55cdcf; 
+    --accent-color: #f39c12; 
+    --background-color: #121212;
+    --container-background: #1f1f1f; 
+    --text-color: #ffffff;
 }
 
-body{
-    flex-flow: wrap;
-    color: white;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
     min-height: 100vh;
     font-family: 'Roboto Mono', Arial, Helvetica;
-    background: black;
-    /* background: linear-gradient(120deg, rgb(221, 188, 42) 0% , rgba(112, 187, 27, 0.918)) */
-}
-
-header{
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background:#010101;
     
 }
 
-hr{
-    margin-top: 25px;
-}
-
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: black;
-    margin-top: 10rem;
+    margin-top: 5rem;
+    padding: 1rem;
 }
 
 .watch-container {
-    border-radius: 100%;
+    border-radius: 50%;
     width: 20vw;
     height: auto;
     font-size: 6vw;
-    padding: 10px;
-    background: black ;
-    color:white;
+    margin: 2rem;
+    padding:20px;
+    background: var(--container-background);
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 30px rgba(122, 118, 122, 0.918);
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.7);
 }
 
-.watch-buttons{
+.watch-buttons {
     display: flex;
-    align-items:center; 
-    justify-content: center;  
+    align-items: center;
+    justify-content: center;
+    padding: 6rem;
 }
 
-button{
-    margin: 5em;
-}
-
-button:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px #c535b9, 0 0 30px #c535b9;
-}
-
-.watch-buttons button{
+.watch-buttons button {
     border: none;
+    margin: 1rem;
     width: 7rem;
     height: 3rem;
     outline: none;
     cursor: pointer;
-    background-color: #c535b9;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     border-radius: 10px;
     font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-.watch-buttons button:nth-last-child(1){
-    background-color: rgb(55, 205, 216);
+.watch-buttons button:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
 }
 
-.watch-buttons button:nth-last-child(2){
-    background-color: rgb(113, 122, 122);
+.watch-buttons button:nth-last-child(1) {
+    background-color: var(--secondary-color);
 }
 
-.watch-buttons button:nth-child(3){
-    background-color: rgb(243, 156, 18);
+.watch-buttons button:nth-last-child(2) {
+    background-color: var(--primary-color); 
 }
+
+.watch-buttons button:nth-child(3) {
+    background-color: var(--accent-color);
+}
+
 ::-webkit-scrollbar{
-    background-color: black;
-    width: 3px;    
+    background-color: var(--background-color);
+    width: 10px;    
 }
 
 ::-webkit-scrollbar-button{
-    border-radius: 10px;
-    background-color: #c535b9;
+    background-color: var(--primary-color);
 
 }
-
-.lap-container{
+.lap-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
-    color: white;
+    padding: 1rem;
+    color: var(--text-color);
 }
 
-.lap-container div{
-    background-color: rgb(34, 34, 34);
-    padding: 10px;
-    margin: 5px 0;
+.lap-container div {
+    background-color: #333333;
+    border: 2px solid var(--primary-color);
+    padding: 15px;
+    margin: 10px 0;
     border-radius: 5px;
     width: 200px;
     text-align: center;
     font-size: 16px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .notification {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: rgba(226, 23, 223, 0.8);
-    color: white;
+    background-color: rgba(255, 0, 255, 0.8);
+    color: var(--text-color);
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 16px;
