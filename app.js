@@ -5,6 +5,9 @@ let int = null;
 const lapContainer = document.querySelector('.lap-container');
 let lapCount = 0;
 const lapNotification = document.getElementById('lapNotification');
+const startButtonSound = new Audio('./Assets/startup.mp3');
+const resetButtonSound = new Audio('./Assets/reset.mp3');
+const pauseButtonSound = new Audio('./Assets/pause.mp3');
 
 //event listeners
 document.addEventListener('keydown', (e) => {
@@ -18,17 +21,21 @@ document.addEventListener('keydown', (e) => {
 });
 
 document.getElementById('startTimer').addEventListener('click', ()=>{
+    startButtonSound.play()
     if(int !== null){
         clearInterval(int);
     }
     int = setInterval(displayTimer, 10);
+
 });
 
 document.getElementById('pauseTimer').addEventListener('click', ()=>{
+    pauseButtonSound.play();
     clearInterval(int);
 });
 
 document.getElementById('resetTimer').addEventListener('click', ()=>{
+    resetButtonSound.play();
     clearInterval(int);
     [milliseconds,seconds,minutes,hours] = [0,0,0,0];
     timerRef.innerHTML = '00:00:00:000';
@@ -41,7 +48,7 @@ document.getElementById('lapTimer').addEventListener('click', () => {
     const lapTime = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}:${milliseconds < 10 ? '00' + milliseconds : milliseconds < 100 ? '0' + milliseconds : milliseconds}`;
     
     const lapDiv = document.createElement('div');
-    lapDiv.innerText = `Lap: ${lapTime}`;
+    lapDiv.innerText = `Lap ${lapCount}: ${lapTime}`;
     
     lapContainer.appendChild(lapDiv);
     
